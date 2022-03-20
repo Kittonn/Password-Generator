@@ -31,7 +31,7 @@ const Card = () => {
     let gen = "";
     let l = slide;
     if (!enabledLower && !enabledNum && !enabledSym && !enabledUpper) {
-      gen = "";
+      gen = "Please choose one of available options.";
     } else {
       while (l !== 0) {
         if (enabledUpper) {
@@ -85,7 +85,7 @@ const Card = () => {
         setEnabledSym={setEnabledSym}
       />
       <div
-        className="bg-gradient-to-r from-cyan-500 to-blue-500 mx-6 p-5 text-lg rounded-lg text-center cursor-pointer"
+        className="bg-gradient-to-r from-cyan-500 to-blue-500 font-semibold mx-6 p-5 text-lg rounded-lg text-center cursor-pointer"
         onClick={handleClick}
       >
         GENERATE PASSWORD
