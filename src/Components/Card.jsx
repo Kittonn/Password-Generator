@@ -30,33 +30,37 @@ const Card = () => {
 
     let gen = "";
     let l = slide;
-    while (l !== 0) {
-      if (enabledUpper) {
-        gen += RandomUpper();
-        l--;
-        if (l === 0) {
-          break;
+    if (!enabledLower && !enabledNum && !enabledSym && !enabledUpper) {
+      gen = "";
+    } else {
+      while (l !== 0) {
+        if (enabledUpper) {
+          gen += RandomUpper();
+          l--;
+          if (l === 0) {
+            break;
+          }
         }
-      }
-      if (enabledLower) {
-        gen += RandomLower();
-        l--;
-        if (l === 0) {
-          break;
+        if (enabledLower) {
+          gen += RandomLower();
+          l--;
+          if (l === 0) {
+            break;
+          }
         }
-      }
-      if (enabledNum) {
-        gen += RandomNum().toString();
-        l--;
-        if (l === 0) {
-          break;
+        if (enabledNum) {
+          gen += RandomNum().toString();
+          l--;
+          if (l === 0) {
+            break;
+          }
         }
-      }
-      if (enabledSym) {
-        gen += RandomSymbol();
-        l--;
-        if (l === 0) {
-          break;
+        if (enabledSym) {
+          gen += RandomSymbol();
+          l--;
+          if (l === 0) {
+            break;
+          }
         }
       }
     }
@@ -64,9 +68,11 @@ const Card = () => {
   };
 
   return (
-    <div className="bg-[#0A0F33] text-white w-[400px] h-[600px] mt-10 rounded-2xl">
-      <h1 className="text-3xl text-center mt-4">Password Generator</h1>
-      <Display text={text}/>
+    <div className="bg-[#0A0F33] font-[Montserrat] text-white w-[400px] h-[670px] rounded-2xl mt-2 md:mt-10">
+      <h1 className="text-3xl text-center font-semibold my-4">
+        Password Generator
+      </h1>
+      <Display text={text} />
       <Slide slide={slide} setSlide={setSlide} />
       <Custom
         enabledUpper={enabledUpper}
@@ -78,7 +84,12 @@ const Card = () => {
         enabledSym={enabledSym}
         setEnabledSym={setEnabledSym}
       />
-      <button onClick={handleClick}>GENERATE PASSWORD</button>
+      <div
+        className="bg-gradient-to-r from-cyan-500 to-blue-500 mx-6 p-5 text-lg rounded-lg text-center cursor-pointer"
+        onClick={handleClick}
+      >
+        GENERATE PASSWORD
+      </div>
     </div>
   );
 };

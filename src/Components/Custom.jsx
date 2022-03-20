@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch } from "@headlessui/react";
+import IncludeLayout from "./IncludeLayout";
 const Custom = ({
   enabledUpper,
   setEnabledUpper,
@@ -12,7 +13,8 @@ const Custom = ({
 }) => {
   return (
     <div>
-      <div>
+      <p className="mx-6 text-xs tracking-wider mb-2">SETTINGS</p>
+      <IncludeLayout>
         <p>Include Uppercase</p>
         <Switch
           checked={enabledUpper}
@@ -28,8 +30,8 @@ const Custom = ({
             } inline-block w-4 h-4 transform bg-white rounded-full`}
           />
         </Switch>
-      </div>
-      <div>
+      </IncludeLayout>
+      <IncludeLayout>
         <p>Include Lowercase</p>
         <Switch
           checked={enabledLower}
@@ -45,8 +47,8 @@ const Custom = ({
             } inline-block w-4 h-4 transform bg-white rounded-full`}
           />
         </Switch>
-      </div>
-      <div>
+      </IncludeLayout>
+      <IncludeLayout>
         <p>Include Numbers</p>
         <Switch
           checked={enabledNum}
@@ -62,8 +64,8 @@ const Custom = ({
             } inline-block w-4 h-4 transform bg-white rounded-full`}
           />
         </Switch>
-      </div>
-      <div>
+      </IncludeLayout>
+      <IncludeLayout>
         <p>Include Symbols</p>
         <Switch
           checked={enabledSym}
@@ -79,7 +81,7 @@ const Custom = ({
             } inline-block w-4 h-4 transform bg-white rounded-full`}
           />
         </Switch>
-      </div>
+      </IncludeLayout>
     </div>
   );
 };
