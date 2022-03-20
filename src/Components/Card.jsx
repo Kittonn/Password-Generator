@@ -11,23 +11,6 @@ const Card = () => {
   const [enabledSym, setEnabledSym] = useState(false);
 
   const handleClick = () => {
-    function RandomNum() {
-      return Math.floor(Math.random() * 10);
-    }
-
-    function RandomUpper() {
-      return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-    }
-
-    function RandomLower() {
-      return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-    }
-
-    function RandomSymbol() {
-      const symbols = '~!@#$%^&*()_+{}":?><;.,';
-      return symbols[Math.floor(Math.random() * symbols.length)];
-    }
-
     let gen = "";
     let l = slide;
     if (!enabledLower && !enabledNum && !enabledSym && !enabledUpper) {
@@ -35,28 +18,29 @@ const Card = () => {
     } else {
       while (l !== 0) {
         if (enabledUpper) {
-          gen += RandomUpper();
+          gen += String.fromCharCode(Math.floor(Math.random() * 26) + 65);
           l--;
           if (l === 0) {
             break;
           }
         }
         if (enabledLower) {
-          gen += RandomLower();
+          gen += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
           l--;
           if (l === 0) {
             break;
           }
         }
         if (enabledNum) {
-          gen += RandomNum().toString();
+          gen += Math.floor(Math.random() * 10).toString();
           l--;
           if (l === 0) {
             break;
           }
         }
         if (enabledSym) {
-          gen += RandomSymbol();
+          const symbols = '~!@#$%^&*()_+{}":?><;.,';
+          gen += symbols[Math.floor(Math.random() * symbols.length)];
           l--;
           if (l === 0) {
             break;
@@ -68,7 +52,7 @@ const Card = () => {
   };
 
   return (
-    <div className="bg-[#0A0F33] font-[Montserrat] text-white w-[400px] h-[670px] rounded-2xl mt-2 md:mt-10">
+    <div className="bg-[#0A0F33] font-[Montserrat] text-white w-[400px] h-[695px] rounded-2xl mt-2 md:mt-10">
       <h1 className="text-3xl text-center font-semibold my-4">
         Password Generator
       </h1>
